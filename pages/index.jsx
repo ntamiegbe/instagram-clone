@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
+import Feed from '../components/Feed'
 
 const Home = () => {
   return (
@@ -11,6 +12,8 @@ const Home = () => {
       </Head>
 
       <Navbar />
+
+      <Feed />
     </div>
   )
 }
