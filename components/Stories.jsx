@@ -15,7 +15,6 @@ const Stories = () => {
         }));
 
         setPeopleData(data);
-        console.log(peopleData);
     }, []);
 
     return (
