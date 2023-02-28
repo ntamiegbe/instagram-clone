@@ -10,7 +10,7 @@ const Suggestions = () => {
         const data = Array.from({ length: 7 }, () => ({
             name: faker.name.fullName(), 
             avatar: faker.image.avatar(),
-            company: faker.company.companyName(),
+            company: faker.company.name(),
             id: faker.datatype.uuid()
         }));
 
