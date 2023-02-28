@@ -18,7 +18,7 @@ const Stories = () => {
     }, []);
 
     return (
-        <div className='flex space-x-3 mt-8 p-6 overflow-y-hidden overflow-x-scroll bg-white scrollbar-thumb-gray-700 scrollbar-thin'>
+        <div className='flex space-x-3 mt-3 p-6 overflow-y-hidden overflow-x-scroll bg-white scrollbar-thumb-gray-700 scrollbar-thin'>
             {peopleData.map((person) => (
                 <div className='hover:scale-110 transition-all duration-150 ease-out'>
                     <Image src={person.picture} alt={person.name} width={50} height={50} className='h-14 w-14 rounded-full p-[1.5px] border-2 border-red-400 cursor-pointer object-contain' />
