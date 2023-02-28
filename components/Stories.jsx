@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
+import Image from 'next/image';
 
 const Stories = () => {
 
@@ -10,23 +11,22 @@ const Stories = () => {
         const data = Array.from({ length: 25 }, () => ({
             name: faker.name.fullName(),
             picture: faker.image.avatar(),
+            id: faker.datatype.uuid()
         }));
-        
+
         setPeopleData(data);
+        console.log(peopleData);
     }, []);
 
-  return (
-      <div>
-          <h1>Fake People Data</h1>
-          <ul>
-              {peopleData.map((person) => (
-                  <li key={person.name}>
-                      <img src={person.picture} alt="Profile" />
-                      {person.name}
-                  </li>
-              ))}
-          </ul>
-      </div>
+    return (
+        <div className='flex space-x-3 mt-8 p-6 overflow-y-hidden overflow-x-scroll bg-white scrollbar-thumb-gray-400 scrollbar-thin'>
+            {peopleData.map((person) => (
+                <div className='hover:scale-110 transition-all duration-150 ease-out'>
+                    <Image src={person.picture} alt={person.name} width={50} height={50} className='h-14 w-14 rounded-full p-[1.5px] border-2 border-red-400 cursor-pointer object-contain' />
+                    <h1 className='text-xs w-14 truncate text-center'>{person.name}</h1>
+                </div>
+            ))}
+        </div>
     )
 }
 
