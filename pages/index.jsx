@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import Feed from '../components/Feed'
+import Modal from '../components/Modal'
 
 const Home = () => {
   return (
@@ -14,6 +15,8 @@ const Home = () => {
       <Navbar />
 
       <Feed />
+
+      <Modal />
     </div>
   )
 }

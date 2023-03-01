@@ -1,10 +1,13 @@
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 
 const Navbar = () => {
 
     const { data: session } = useSession()
+    const [open, setOpen] = useRecoilState(modalState)
     const router = useRouter()
 
     return (
@@ -40,7 +43,7 @@ const Navbar = () => {
                                 <div className="text-white bg-red-400 animate-pulse px-2 rounded-full absolute -top-3 left-4">3</div>
                             </div>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hidden md:inline hover:scale-125 transition-all duration-150 ease-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6  hover:scale-125 transition-all duration-150 ease-out" onClick={() => setOpen(true)}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
