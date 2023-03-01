@@ -15,5 +15,17 @@ export default NextAuth({
     ],
     pages: {
         signIn: "/auth/signin"
+    },
+    callbacks: {
+        async session({ session, token, user }) {
+            session.user.username = session.user.name
+            //remove the spaces, and change to lowercase
+                .split(" ")
+                .join("")
+                .toLocaleLowerCase()
+            
+            session.user.uid = token.sub
+            return session
+        }
     }
 })
