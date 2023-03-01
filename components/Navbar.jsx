@@ -1,19 +1,21 @@
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
 
     const { data: session } = useSession()
+    const router = useRouter()
 
     return (
         <div className="shadow bg-white sticky top-0 z-50">
             <div className='flex px-6 items-center justify-between max-w-6xl mx-auto'>
 
-                <div className="hidden md:inline relative w-20 h-10 cursor-pointer">
+                <div className="hidden md:inline relative w-20 h-10 cursor-pointer" onClick={() => router.push("/")}>
                     <Image src='https://links.papareact.com/ocw' fill style={{ objectFit: "contain" }} />
                 </div>
 
-                <div className="md:hidden relative w-10 h-10 flex-shrink-0 cursor-pointer">
+                <div className="md:hidden relative w-10 h-10 flex-shrink-0 cursor-pointer" onClick={() => router.push("/")}>
                     <Image src='https://links.papareact.com/jjm' fill style={{ objectFit: "contain" }} />
                 </div>
 
