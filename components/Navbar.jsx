@@ -29,15 +29,15 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                             </svg>
                         </div>
-                        <input type="text" className='bg-gray-50 rounded-md block w-full pl-10 border py-2 focus:ring-black' placeholder='Search' />
+                        <input type="text" className='bg-gray-50 rounded-md block w-[80%] pl-10 border py-2 focus:ring-black' placeholder='Search' />
                     </div>
                 </div>
 
-                <div className="flex justify-end items-center space-x-4">
+                <div className="flex justify-end items-center space-x-3">
                     {session ? (
                         <>
                             <div className="relative hidden md:inline hover:scale-125 transition-all duration-150 ease-out">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 sm:w-10 sm:h-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 </svg>
                                 <div className="text-white bg-red-400 animate-pulse px-2 rounded-full absolute -top-3 left-4">3</div>
