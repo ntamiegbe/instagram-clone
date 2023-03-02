@@ -96,7 +96,7 @@ const Modal = () => {
                             <div className="">
 
                                 {selectedFile ? (
-                                    <img src={selectedFile} alt="Selected File" onClick={() => setSelectedFile(null)} className='w-full object-contain cursor-pointer' />
+                                    <img src={selectedFile} alt="Selected File" onClick={() => setSelectedFile(null)} className='w-full object-contain cursor-pointer h-[30vh]' />
                                 ) : (
                                     <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 cursor-pointer border border-blue-700" onClick={() => filePickerRef.current.click()}>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-blue-700">
