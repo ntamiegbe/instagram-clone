@@ -21,7 +21,7 @@ This is an Instagram clone built with Next.js, Tailwind CSS, NextAuth, Recoil, a
   
   <p>To get started with this app, follow these steps:</p>
   <ol>
-    <li>Clone the repository: git clone [https://github.com/your-username/nextjs-social-media-app.git](https://github.com/ntamiegbe/instagram-clone)</li>
+    <li>Clone the repository: git clone https://github.com/ntamiegbe/instagram-clone</li>
     <li>Install dependencies: npm install</li>
     <li>Configure Firebase: Create a Firebase project and add the configuration details to .env.local.</li>
     <li>Start the app: npm run dev</li>
