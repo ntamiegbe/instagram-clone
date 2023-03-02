@@ -1,13 +1,20 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from "firebase/firestore"
 import { useSession } from "next-auth/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { db } from "../firebase"
+import Moment from "react-moment"
 
 const SinglePost = ({ username, profilePic, image, caption, id }) => {
 
     const { data: session } = useSession()
     const [comments, setComments] = useState([])
     const [comment, setComment] = useState("")
+
+    useEffect(() => {
+        onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => {
+            setComments(snapshot.docs)
+        })
+    }, [db])
 
     const sendComment = async (e) => {
         e.preventDefault()
@@ -51,10 +58,26 @@ const SinglePost = ({ username, profilePic, image, caption, id }) => {
                     </svg>
                 </div>
             )}
+
             <p className="p-5 truncate">
                 <span className="font-bold mr-2">{username}</span>
                 {caption}
             </p>
+
+            {comments.length > 0 && (
+                <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-gray-700 scrollbar-thin">
+                    {comments.map(comment => (
+                        <div className="flex items-center space-x-2 mb-3 text-sm" key={comment.id}>
+                            <img src={comment.data().userImage} alt="Comment" className="h-7 rounded-full" />
+                            <p className="text-sm flex-1"><span className="font-bold mr-1">{comment.data().username}</span>{comment.data().comment}</p>
+                            <Moment fromNow className="px-5">
+                                {comment.data().timestamp?.toDate()}
+                            </Moment>
+                        </div>
+                    ))}
+                </div>
+            )}
+
             {session && (
                 <form className="flex items-center px-4 pb-3 space-x-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
